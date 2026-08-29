@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wszlaga <wszlaga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:49:48 by wszlaga           #+#    #+#             */
-/*   Updated: 2025/11/06 13:59:24 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/29 08:54:42 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ char	**ft_split(char const *s, char c)
 	}
 	str[j] = NULL;
 	return (str);
+}
+
+void free_split(char **split)
+{
+    int i;
+
+    i = 0;
+    if (!split)
+        return;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
 }

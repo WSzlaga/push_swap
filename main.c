@@ -6,7 +6,7 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 08:15:42 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/23 23:33:51 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/29 10:22:30 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,77 @@
 
 int stack_size(t_node *stack)
 {
-	
-}
+    int size;
 
-void build_stack(t_node **stack, char *arg)
+    size = 0;
+    while (stack)
+    {
+        size++;
+        stack = stack->next;
+    }
+    return (size);
+}
+int is_sorted(t_node *stack)
 {
-    
+    if (!stack)
+        return (1);
+    while (stack->next)
+    {
+        if (stack->value > stack->next->value)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
 }
 
-void free_stack(t_node **stack)
+void    sort_three(t_node **stack)
 {
-	
+    int a;
+    int b;
+    int c;
+
+    a = (*stack)->value;
+    b = (*stack)->next->value;
+    c = (*stack)->next->next->value;
+    if (a > b && b > c)
+        sa(stack);
+    else if (a > b && b < c && a < c)
+        sa(stack);
+    else if (a > b && a > c)
+    {
+        rra(stack);
+        sa(stack);
+    }
+    else if (a < b && b > c && a > c)
+        ra(stack);
+    else if (a < b && b > c && a < c)
+    {
+        sa(stack);
+        rra(stack);
+    }
 }
 
+void    free_stack(t_node **stack)
+{
+    t_node  *temp;
+
+    while (*stack)
+    {
+        temp = (*stack)->next;
+        free(*stack);
+        *stack = temp;
+    }
+}
 
 int main(int argc, char **argv)
 {
     t_node  *stack_a;
-    int     j;
 
     stack_a = NULL;
-    j = 1;
-    
     if (argc == 1)
         return (0);
-    while (j < argc)
-    {
-        check_arguments(argv[j], &stack_a);
-        build_stack(&stack_a, argv[j]);
-        j++;
-    }
-    if (is_sorted(stack_a) == 0) 
+    parse_args(argc, argv, &stack_a);
+    if (is_sorted(stack_a) == 0)
     {
         if (stack_size(stack_a) == 2)
             sa(&stack_a);

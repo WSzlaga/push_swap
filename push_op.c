@@ -6,7 +6,7 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 07:31:36 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/21 06:15:48 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/29 10:15:49 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void push(t_node **src, t_node **dest)
 }
 void pa(t_node **stack_a, t_node **stack_b)
 {
-    push_node(stack_b, stack_a);
+    push(stack_b, stack_a);
     write(1, "pa\n", 3);
 }
 
 void pb(t_node **stack_a, t_node **stack_b)
 {
-    push_node(stack_a, stack_b);
+    push(stack_a, stack_b);
     write(1, "pb\n", 3);
 }
