@@ -6,7 +6,7 @@
 #    By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/18 07:31:49 by wszlaga           #+#    #+#              #
-#    Updated: 2026/08/29 10:27:13 by wszlaga          ###   ########.fr        #
+#    Updated: 2026/08/30 06:59:03 by wszlaga          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ CFLAGS += -I$(LIB_DIR)
 LDFLAGS = -L$(LIB_DIR) -l$(LIB_NAME)
 
 NAME = push_swap
-SRCS = main.c push_op.c rev_rot_op.c rotate_op.c swap_op.c utils1.c utils2.c
+SRCS = main.c push_op.c rev_rot_op.c rotate_op.c swap_op.c utils1.c utils2.c turk.c \
+cost_utils.c push_to_b.c push_to_a.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -32,7 +34,6 @@ $(LIB_DIR)/lib$(LIB_NAME).a:
 
 $(NAME): $(OBJS) $(LIB_DIR)/lib$(LIB_NAME).a
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
-
 clean:
 	rm -f $(OBJS)
 	$(MAKE) -C $(LIB_DIR) clean

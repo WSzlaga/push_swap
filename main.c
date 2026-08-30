@@ -6,7 +6,7 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/22 08:15:42 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/29 10:22:30 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/30 03:22:06 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,18 @@ void    sort_three(t_node **stack)
     a = (*stack)->value;
     b = (*stack)->next->value;
     c = (*stack)->next->next->value;
-    if (a > b && b > c)
+    if (a < b && b < c)
+        return ;
+    else if (a < c && c < b)
+        return (rra(stack), sa(stack));
+    else if (b < a && a < c)
         sa(stack);
-    else if (a > b && b < c && a < c)
-        sa(stack);
-    else if (a > b && a > c)
-    {
+    else if (c < a && a < b)
         rra(stack);
-        sa(stack);
-    }
-    else if (a < b && b > c && a > c)
+    else if (b < c && c < a)
         ra(stack);
-    else if (a < b && b > c && a < c)
-    {
-        sa(stack);
-        rra(stack);
-    }
+    else
+        return (sa(stack), rra(stack));
 }
 
 void    free_stack(t_node **stack)
@@ -79,8 +75,10 @@ void    free_stack(t_node **stack)
 int main(int argc, char **argv)
 {
     t_node  *stack_a;
+    t_node  *stack_b;
 
     stack_a = NULL;
+    stack_b = NULL;
     if (argc == 1)
         return (0);
     parse_args(argc, argv, &stack_a);
@@ -91,7 +89,7 @@ int main(int argc, char **argv)
         else if (stack_size(stack_a) == 3)
             sort_three(&stack_a);
         else
-            turk(&stack_a);
+            turk(&stack_a, &stack_b);
     }
     free_stack(&stack_a);
     return (0);

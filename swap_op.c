@@ -6,12 +6,11 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 07:30:58 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/18 08:03:41 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/30 08:22:18 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
 
 void    swap(t_node **stack)
 {

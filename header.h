@@ -6,7 +6,7 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 07:32:53 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/29 10:26:52 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/30 08:01:28 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HEADER_H
 
 # include "libft.h"
+
 
 typedef struct s_node
 {
@@ -41,5 +42,10 @@ void    free_stack(t_node **stack);
 void    check_arguments(char *argv, t_node **stack);
 void    build_stack(t_node **stack, char *arg);
 void    parse_args(int argc, char **argv, t_node **stack_a);
+void    turk(t_node **stack_a, t_node **stack_b);
+int     cost_to_top(int index, int size);
+void    push_to_b(t_node **stack_a, t_node **stack_b);
+void    push_to_a(t_node **stack_a, t_node **stack_b);
+int     find_min_index(t_node *stack_a);
 
 #endif

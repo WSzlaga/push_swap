@@ -6,11 +6,11 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 09:33:52 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/29 10:21:42 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/08/30 20:28:13 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <header.h>
+#include "header.h"
 
 void    build_stack(t_node **stack, char *arg)
 {
@@ -30,31 +30,36 @@ void    build_stack(t_node **stack, char *arg)
     *stack = new_node;
 }
 
-void parse_args(int argc, char **argv, t_node **stack_a)
+static void process_from_split(char **numbers, t_node **stack_a)
 {
-    char    **numbers;
-    int     j;
+    int j;
 
     j = 0;
-    if (argc == 2)
+    while (numbers[j])
+        j++;
+    while (j > 0)
     {
-        numbers = ft_split(argv[1], ' ');
-        while (numbers[j])
-        {
-            check_arguments(numbers[j], stack_a);
-            build_stack(stack_a, numbers[j]);
-            j++;
-        }
-        free_split(numbers);
+        j--;
+        check_arguments(numbers[j], stack_a);
+        build_stack(stack_a, numbers[j]);
     }
+    free_split(numbers);
+}
+
+void    parse_args(int argc, char **argv, t_node **stack_a)
+{
+    int j;
+
+    if (argc == 2)
+        process_from_split(ft_split(argv[1], ' '), stack_a);
     else
     {
-        j = 1;
-        while (j < argc)
+        j = argc;
+        while (j > 1)
         {
+            j--;
             check_arguments(argv[j], stack_a);
             build_stack(stack_a, argv[j]);
-            j++;
         }
     }
 }
