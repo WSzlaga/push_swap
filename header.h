@@ -6,7 +6,7 @@
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 07:32:53 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/08/30 08:01:28 by wszlaga          ###   ########.fr       */
+/*   Updated: 2026/09/01 05:30:56 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void    build_stack(t_node **stack, char *arg);
 void    parse_args(int argc, char **argv, t_node **stack_a);
 void    turk(t_node **stack_a, t_node **stack_b);
 int     cost_to_top(int index, int size);
+void    do_rotation(t_node **stack, int cost, int is_b);
 void    push_to_b(t_node **stack_a, t_node **stack_b);
 void    push_to_a(t_node **stack_a, t_node **stack_b);
-int     find_min_index(t_node *stack_a);
-
+int     my_positive(int n);
 #endif
