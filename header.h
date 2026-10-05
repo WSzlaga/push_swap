@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 07:32:53 by wszlaga           #+#    #+#             */
-/*   Updated: 2026/09/01 05:30:56 by wszlaga          ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   header.h                                          :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/08/18 07:32:53 by username         #+#    #+#              */
+/*   Updated: 2026/10/05 12:53:01 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,27 @@
 
 # include "libft.h"
 
-
 typedef struct s_node
 {
-    int             value;
-    struct s_node   *next;
-    struct s_node   *prev;
-} t_node;
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+typedef struct s_search
+{
+	int	best_i;
+	int	best_val;
+	int	min_i;
+	int	min_val;
+}	t_search;
+
+typedef struct s_cost
+{
+	int	best_a;
+	int	best_b;
+	int	best;
+}	t_cost;
 
 void	sa(t_node **stack_a);
 void	sb(t_node **stack_b);
@@ -34,18 +48,18 @@ void	rr(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_a);
 void	rrr(t_node **stack_a, t_node **stack_b);
-void    swap(t_node **stack);
-int     stack_size(t_node *stack);
-int     is_sorted(t_node *stack);
-void    sort_three(t_node **stack);
-void    free_stack(t_node **stack);
-void    check_arguments(char *argv, t_node **stack);
-void    build_stack(t_node **stack, char *arg);
-void    parse_args(int argc, char **argv, t_node **stack_a);
-void    turk(t_node **stack_a, t_node **stack_b);
-int     cost_to_top(int index, int size);
-void    do_rotation(t_node **stack, int cost, int is_b);
-void    push_to_b(t_node **stack_a, t_node **stack_b);
-void    push_to_a(t_node **stack_a, t_node **stack_b);
-int     my_positive(int n);
+void	swap(t_node **stack);
+int		stack_size(t_node *stack);
+int		is_sorted(t_node *stack);
+void	sort_three(t_node **stack);
+void	free_stack(t_node **stack);
+void	check_arguments(char *argv, t_node **stack);
+void	build_stack(t_node **stack, char *arg);
+void	parse_args(int argc, char **argv, t_node **stack_a);
+void	turk(t_node **stack_a, t_node **stack_b);
+int		cost_to_top(int index, int size);
+void	do_rotation(t_node **stack, int cost, int is_b);
+void	push_to_b(t_node **stack_a, t_node **stack_b);
+void	push_to_a(t_node **stack_a, t_node **stack_b);
+int		my_positive(int n);
 #endif
