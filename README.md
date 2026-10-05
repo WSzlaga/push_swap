@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by <wszlaga>.*
+*This project has been created as part of the 42 curriculum by wszlaga.*
 
 # push_swap
 
@@ -53,22 +53,23 @@ ARG="3 1 2"
 
 ## Project Structure
 
+```text
 push_swap/
-├── main.c # argument handling, entry point
-├── parse_args.c # splitting/looping over input, in original order
+├── main.c            # argument handling, entry point
+├── parse_args.c      # splitting/looping over input, in original order
 ├── check_arguments.c # validation: digits, overflow, duplicates
-├── build_stack.c # stack (doubly linked list) construction
-├── sort_three.c # fixed 3-element sort
+├── build_stack.c     # stack (doubly linked list) construction
+├── sort_three.c      # fixed 3-element sort
 ├── swap_op.c / rotate_op.c / rev_rot_op.c / push_op.c
-│ # the 11 required operations + their print output
-├── turk.c # entry point for the >3-element algorithm
-├── push_to_b.c # phase 1: cost-based push from a to b
-├── push_to_a.c # phase 2: cost-based push back from b to a
-├── cost_utils.c # shared cost/rotation helpers
+│                     # the 11 required operations + their print output
+├── turk.c            # entry point for the >3-element algorithm
+├── push_to_b.c       # phase 1: cost-based push from a to b
+├── push_to_a.c       # phase 2: cost-based push back from b to a
+├── cost_utils.c      # shared cost/rotation helpers
 ├── utils1.c / utils2.c # stack_size, is_sorted, free_stack, etc.
-├── libft/ # custom C library
+├── libft/            # custom C library
 └── Makefile
-
+```
 
 ### Errors
 
@@ -94,7 +95,6 @@ No output at all (not even `Error`) is printed when no arguments are given
 
 ## Resources
 
-- [42 push_swap subject](https://cdn.intra.42.fr/pdf/pdf/push_swap.en.pdf)
 - [Ayogun, "Push swap" (Medium)](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - [YouTube: push_swap algorithm walkthrough](https://youtu.be/wRvipSG4Mmk) —
   main resource for understanding the Turk algorithm's "target node" and
@@ -103,6 +103,7 @@ No output at all (not even `Error`) is printed when no arguments are given
 ### AI usage
 
 AI tools were used for conceptual research (understanding the Turk algorithm and data structures) and to assist in drafting this README. All code implementation and final documentation were reviewed and verified by the author.
+
 ---
 All code in this repository was written, typed, and understood by the author.
 
