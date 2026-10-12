@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 05:54:49 by username          #+#    #+#             */
-/*   Updated: 2026/10/05 12:57:06 by wszlaga          ###   ########.fr       */
+/*   Created: 2026/08/30 05:54:49 by wszlaga           #+#    #+#             */
+/*   Updated: 2026/10/12 13:13:13 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	update_best_cost(int cost_a, int cost_b, t_cost *c)
 {
 	int	total;
 
-	total = my_positive(cost_a) + my_positive(cost_b);
+	total = total_cost(cost_a, cost_b);
 	if (total < c->best)
 	{
 		c->best = total;
@@ -97,6 +97,7 @@ void	push_to_b(t_node **stack_a, t_node **stack_b)
 	while (stack_size(*stack_a) > 3)
 	{
 		find_best(*stack_a, *stack_b, &cost_a, &cost_b);
+		rotate_both(stack_a, stack_b, &cost_a, &cost_b);
 		do_rotation(stack_a, cost_a, 0);
 		do_rotation(stack_b, cost_b, 1);
 		pb(stack_a, stack_b);

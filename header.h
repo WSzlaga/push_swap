@@ -3,10 +3,10 @@
 /*                                                       :::      ::::::::    */
 /*   header.h                                          :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*   By: wszlaga <wszlaga@student.42warsaw.pl>     #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/18 07:32:53 by username         #+#    #+#              */
-/*   Updated: 2026/10/05 12:53:01 by username        ###   ########.fr        */
+/*   Created: 2026/08/18 07:32:53 by wszlaga          #+#    #+#              */
+/*   Updated: 2026/10/12 13:07:55 by wszlaga         ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,6 @@ void	do_rotation(t_node **stack, int cost, int is_b);
 void	push_to_b(t_node **stack_a, t_node **stack_b);
 void	push_to_a(t_node **stack_a, t_node **stack_b);
 int		my_positive(int n);
+void	rotate_both(t_node **a, t_node **b, int *cost_a, int *cost_b);
+int		total_cost(int cost_a, int cost_b);
 #endif
