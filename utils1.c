@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   utils1.c                                          :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: wszlaga <wszlaga@student.42warsaw.pl>     #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/22 08:16:44 by wszlaga          #+#    #+#              */
-/*   Updated: 2026/10/12 13:08:52 by wszlaga         ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   utils1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/22 08:16:44 by wszlaga           #+#    #+#             */
+/*   Updated: 2026/10/12 13:44:19 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,22 @@ static int	is_duplicate(t_node *stack, int nb)
 	return (0);
 }
 
-void	check_arguments(char *argv, t_node **stack)
+static void	exit_error(t_node **stack, char **split)
+{
+	write(2, "Error\n", 6);
+	free_stack(stack);
+	if (split)
+		free_split(split);
+	exit(1);
+}
+
+void	check_arguments(char *argv, t_node **stack, char **split)
 {
 	long	nb;
 
 	if (!is_valid_number(argv))
-	{
-		write(2, "Error\n", 6);
-		free_stack(stack);
-		exit(1);
-	}
+		exit_error(stack, split);
 	nb = ft_atol(argv);
-	if (nb > INT_MAX || nb < INT_MIN || is_duplicate(*stack, (int) nb))
-	{
-		write(2, "Error\n", 6);
-		free_stack(stack);
-		exit(1);
-	}
+	if (nb > INT_MAX || nb < INT_MIN || is_duplicate(*stack, (int)nb))
+		exit_error(stack, split);
 }

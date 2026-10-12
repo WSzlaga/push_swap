@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   utils2.c                                          :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: wszlaga <wszlaga@student.42warsaw.pl>     #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/29 09:33:52 by wszlaga          #+#    #+#              */
-/*   Updated: 2026/10/12 13:08:56 by wszlaga         ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/29 09:33:52 by wszlaga           #+#    #+#             */
+/*   Updated: 2026/10/12 13:46:18 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	process_from_split(char **numbers, t_node **stack_a)
 	while (j > 0)
 	{
 		j--;
-		check_arguments(numbers[j], stack_a);
+		check_arguments(numbers[j], stack_a, numbers);
 		build_stack(stack_a, numbers[j]);
 	}
 	free_split(numbers);
@@ -58,7 +58,7 @@ void	parse_args(int argc, char **argv, t_node **stack_a)
 		while (j > 1)
 		{
 			j--;
-			check_arguments(argv[j], stack_a);
+			check_arguments(argv[j], stack_a, NULL); 
 			build_stack(stack_a, argv[j]);
 		}
 	}

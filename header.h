@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   header.h                                          :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: wszlaga <wszlaga@student.42warsaw.pl>     #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/18 07:32:53 by wszlaga          #+#    #+#              */
-/*   Updated: 2026/10/12 13:07:55 by wszlaga         ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   header.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wszlaga <wszlaga@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/18 07:32:53 by wszlaga           #+#    #+#             */
+/*   Updated: 2026/10/12 13:45:06 by wszlaga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		stack_size(t_node *stack);
 int		is_sorted(t_node *stack);
 void	sort_three(t_node **stack);
 void	free_stack(t_node **stack);
-void	check_arguments(char *argv, t_node **stack);
+void	check_arguments(char *argv, t_node **stack, char **split);
 void	build_stack(t_node **stack, char *arg);
 void	parse_args(int argc, char **argv, t_node **stack_a);
 void	turk(t_node **stack_a, t_node **stack_b);
